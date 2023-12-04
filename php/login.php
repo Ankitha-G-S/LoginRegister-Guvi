@@ -13,7 +13,6 @@ $password = "sGRjxUnfrR";
 $database = "sql12667587";
 
 
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 
