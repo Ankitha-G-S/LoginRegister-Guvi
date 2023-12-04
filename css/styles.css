@@ -7,7 +7,7 @@ body {
   }
   
   .btn {
-    animation: bounce 1s infinite;
+    animation: bounce 2s infinite;
   }
   
   @keyframes bounce {
