@@ -7,10 +7,10 @@ header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Accept');
 
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "guvi";
+$servername = "sql12.freemysqlhosting.net";
+$username = "sql12667587";
+$password = "sGRjxUnfrR";
+$database = "sql12667587";
 
 
 
@@ -29,16 +29,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Implement login logic using prepared statements
     $stmt = $conn->prepare("SELECT password, id FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $stmt->bind_result($hashedPassword, $userId);
-    $stmt->fetch();
 
-    if (password_verify($password, $hashedPassword)) {
-        // Store the user's ID in the session
-        $_SESSION['user_id'] = $userId;
-        echo 'success';
+    if ($stmt->execute()) {
+        $stmt->bind_result($hashedPassword, $userId);
+        $stmt->fetch();
+        
+        if ($password == $hashedPassword) {
+            // Store the user's ID in the session
+            $_SESSION['user_id'] = $userId;
+            echo 'success';
+        } else {
+            echo 'error: Invalid password';
+        }
     } else {
-        echo 'error';
+        echo 'error: ' . $stmt->error . $hashedPassword ;  // Print SQL error
     }
 
     // Close the statement

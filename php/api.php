@@ -1,9 +1,12 @@
 <?php
 
-require_once "vendor/autoload.php"; // Include the MongoDB PHP library
+require_once __DIR__ . "/vendor/autoload.php";
 
-$mongoClient = new MongoDB\Client("mongodb://localhost:27017");
-$database = $mongoClient->your_database_name;
+use MongoDB\Client;
+
+// Set your MongoDB connection details
+$mongoClient = new Client("mongodb://localhost:27017");
+$database = $mongoClient->your_database_name; // Replace 'your_database_name' with your actual database name
 $collection = $database->users;
 
 session_start();

@@ -4,14 +4,14 @@ function loginUser() {
 
   $.ajax({
     type: "POST",
-    url: "http://localhost/guvimongo/php/login.php",
+    url: "php/login.php",
     data: {
       username: username,
       password: password,
     },
     success: function (response) {
       // Handle the response from the server
-      if (response === "success") {
+      if (response == "success") {
         // Redirect to the profile page or any other desired action
         alert("Login Successful");
         window.location.href = "profile.html";

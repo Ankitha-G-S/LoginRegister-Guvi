@@ -11,7 +11,7 @@ function registerUser() {
 
   $.ajax({
     type: "POST",
-    url: "http://localhost/guvimongo/php/register.php",
+    url: "php/register.php",
     data: {
       firstname: firstname,
       lastname: lastname,
