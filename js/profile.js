@@ -6,7 +6,7 @@ function updateProfile() {
 
     $.ajax({
         type: "POST",
-        url: "php/profile.php",
+        url: "php/updateProfile.php",
         data: {
             address: address,
             state: state,
