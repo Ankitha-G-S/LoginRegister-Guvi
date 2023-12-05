@@ -3,7 +3,7 @@
 session_start();
 
 // Replace the connection URL with your own MongoDB connection string
-$connectionString = "mongodb+srv://spider-calvin:YuFeqVdoZv5IrHM6@splashesmern.345bvzb.mongodb.net/?retryWrites=true&w=majority";
+$connectionString = "mongodb://localhost:27017";
 
 try {
     // Create a new MongoDB client
